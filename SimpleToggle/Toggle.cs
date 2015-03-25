@@ -30,7 +30,7 @@ namespace SimpleToggle
         
         public static string NameFor<T>()
         {
-            return typeof(T).Name;
+            return typeof(T).FullName;
         }
 
         public static bool Enabled<T>()
