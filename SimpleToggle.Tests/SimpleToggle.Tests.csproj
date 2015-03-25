@@ -37,6 +37,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -53,6 +54,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Specs\cookie_toggles\cookie_toggle_context.cs" />
+    <Compile Include="Specs\cookie_toggles\InMemoryHttpContext.cs" />
+    <Compile Include="Specs\cookie_toggles\InMemoryRequest.cs" />
+    <Compile Include="Specs\cookie_toggles\InMemoryResponse.cs" />
+    <Compile Include="Specs\cookie_toggles\toggle_turned_on.cs" />
     <Compile Include="Specs\type_toggles\multiple_toggles.cs" />
     <Compile Include="Specs\MyOtherOffToggle.cs" />
     <Compile Include="Specs\MyOtherToggle.cs" />
@@ -70,6 +76,10 @@
     <Compile Include="Specs\type_toggles\toggle_turned_on_in_second_provider.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\SimpleToggle.Http\SimpleToggle.Http.csproj">
+      <Project>{3EDECC68-3A01-468E-95B9-69EB7BA8E91C}</Project>
+      <Name>SimpleToggle.Http</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SimpleToggle\SimpleToggle.csproj">
       <Project>{6b481ed5-8e45-4819-bc42-d7b36eb2233a}</Project>
       <Name>SimpleToggle</Name>

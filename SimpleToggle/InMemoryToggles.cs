@@ -2,21 +2,7 @@ using System.Collections.Concurrent;
 
 namespace SimpleToggle
 {
-
-    public static class InMemoryProviderExtensions
-    {
-        public static void ToggleOn<T>(this InMemoryToggleStateProvider toggleStateProvider)
-        {
-            toggleStateProvider.ToggleOn(Toggle.NameFor<T>());
-        }
-
-        public static void ToggleOff<T>(this InMemoryToggleStateProvider toggleStateProvider)
-        {
-            toggleStateProvider.ToggleOff(Toggle.NameFor<T>());
-        }
-    }
-
-    public class InMemoryToggleStateProvider : IToggleStateProvider
+    public class InMemoryToggles : IProvider, IToggler
     {
         private readonly ConcurrentDictionary<string, bool> _state = new ConcurrentDictionary<string, bool>(); 
 

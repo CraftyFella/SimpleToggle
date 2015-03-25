@@ -7,7 +7,7 @@ namespace SimpleToggle.Tests.Specs.type_toggles
     {
         public toggle_turned_on_in_second_provider()
         {
-            toggle_on_in<MyToggle>(new InMemoryToggleStateProvider());
+            toggle_on_in<MyToggle>(new InMemoryToggles());
         }
         
         [Fact]

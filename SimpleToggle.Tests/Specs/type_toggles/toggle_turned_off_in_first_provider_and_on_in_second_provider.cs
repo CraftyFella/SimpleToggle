@@ -8,7 +8,7 @@ namespace SimpleToggle.Tests.Specs.type_toggles
         public toggle_turned_off_in_first_provider_and_on_in_second_provider()
         {
             toggle_off<MyToggle>();
-            toggle_on_in<MyToggle>(new InMemoryToggleStateProvider());
+            toggle_on_in<MyToggle>(new InMemoryToggles());
         }
         
         [Fact]

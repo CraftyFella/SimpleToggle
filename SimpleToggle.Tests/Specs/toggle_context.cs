@@ -6,34 +6,34 @@ namespace SimpleToggle.Tests.Specs
 {
     public class toggle_context
     {
-        private readonly InMemoryToggleStateProvider _inMemoryToggleStateProvider;
+        private readonly InMemoryToggles _inMemoryToggles;
 
         public toggle_context()
         {
             Toggle.Config.Default();
-            _inMemoryToggleStateProvider = new InMemoryToggleStateProvider();
-            Toggle.Config.Providers.Add(_inMemoryToggleStateProvider);
+            _inMemoryToggles = new InMemoryToggles();
+            Toggle.Config.Providers.Add(_inMemoryToggles);
         }
 
         protected void toggle_on<T>()
         {    
-            _inMemoryToggleStateProvider.ToggleOn<T>();
+            _inMemoryToggles.ToggleOn<T>();
         }
 
         protected void toggle_on(string toggle)
         {
-            _inMemoryToggleStateProvider.ToggleOn(toggle);
+            _inMemoryToggles.ToggleOn(toggle);
         }
 
         protected void toggle_off<T>()
         {
-            _inMemoryToggleStateProvider.ToggleOff<T>();
+            _inMemoryToggles.ToggleOff<T>();
         }
 
-        protected void toggle_on_in<T>(InMemoryToggleStateProvider toggleStateProvider)
+        protected void toggle_on_in<T>(InMemoryToggles toggles)
         {
-            Toggle.Config.Providers.Add(toggleStateProvider);
-            toggleStateProvider.ToggleOn<T>();
+            Toggle.Config.Providers.Add(toggles);
+            toggles.ToggleOn<T>();
         }
 
         protected bool is_toggle_enabled<T>()

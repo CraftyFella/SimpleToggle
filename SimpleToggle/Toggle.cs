@@ -18,7 +18,7 @@ namespace SimpleToggle
                 throw new KeyNotFoundException(string.Format("Toggle {0} could not be found in any of the {1} ToggleStateProviders", toggle, Providers.Count));
             }
 
-            public static readonly IList<IToggleStateProvider> Providers = new List<IToggleStateProvider>();
+            public static readonly IList<IProvider> Providers = new List<IProvider>();
             public static Func<string, bool> NoToggleBehaviour { get; set; }
 
             public static void Default()
