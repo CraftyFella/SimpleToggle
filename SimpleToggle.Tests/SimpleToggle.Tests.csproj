@@ -54,7 +54,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Specs\cookie_toggles\cookie_toggle_context.cs" />
     <Compile Include="Specs\cookie_toggles\InMemoryHttpContext.cs" />
     <Compile Include="Specs\cookie_toggles\InMemoryRequest.cs" />
     <Compile Include="Specs\cookie_toggles\InMemoryResponse.cs" />
@@ -72,13 +71,14 @@
     <Compile Include="Specs\NotInConfigToggle.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Specs\string_toggles\string_toggle_turned_on.cs" />
-    <Compile Include="Specs\toggle_context.cs" />
     <Compile Include="Specs\getting_toggle_status\toggle_thats_not_registered.cs" />
     <Compile Include="Specs\getting_toggle_status\toggle_turned_off.cs" />
     <Compile Include="Specs\getting_toggle_status\toggle_turned_off_in_first_provider_and_on_in_second_provider.cs" />
     <Compile Include="Specs\getting_toggle_status\toggle_turned_on.cs" />
     <Compile Include="Specs\getting_toggle_status\toggle_turned_on_in_first_provider_and_on_in_second_provider.cs" />
     <Compile Include="Specs\getting_toggle_status\toggle_turned_on_in_second_provider.cs" />
+    <Compile Include="Specs\_contexts\cookie_toggle_context.cs" />
+    <Compile Include="Specs\_contexts\toggle_context.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SimpleToggle.Http\SimpleToggle.Http.csproj">

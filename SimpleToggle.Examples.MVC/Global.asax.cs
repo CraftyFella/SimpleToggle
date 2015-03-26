@@ -41,7 +41,12 @@ namespace SimpleToggle.Examples.MVC
             Toggle.Registry.Add("Toggle1");
             Toggle.Registry.Add("Toggle2");
             Toggle.Registry.Add("Toggle3");
+            Toggle.Registry.Add<TypedToggle>();
 
         }
+    }
+
+    internal class TypedToggle
+    {
     }
 }

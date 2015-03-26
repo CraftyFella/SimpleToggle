@@ -1,5 +1,6 @@
 using System.Linq;
 using Shouldly;
+using SimpleToggle.Tests.Specs._contexts;
 using Xunit;
 
 namespace SimpleToggle.Tests.Specs.adding_to_registry

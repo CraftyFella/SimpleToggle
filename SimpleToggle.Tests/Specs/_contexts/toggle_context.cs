@@ -2,7 +2,7 @@
 
 [assembly: CollectionBehavior(DisableTestParallelization = true)]
 
-namespace SimpleToggle.Tests.Specs
+namespace SimpleToggle.Tests.Specs._contexts
 {
     public class toggle_context
     {

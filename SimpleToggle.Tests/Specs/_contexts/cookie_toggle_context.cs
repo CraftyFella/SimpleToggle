@@ -1,6 +1,7 @@
 ﻿using SimpleToggle.Http;
+using SimpleToggle.Tests.Specs.cookie_toggles;
 
-namespace SimpleToggle.Tests.Specs.cookie_toggles
+namespace SimpleToggle.Tests.Specs._contexts
 {
     public class cookie_toggle_context
     {

@@ -37,7 +37,7 @@ namespace SimpleToggle.Examples.MVC.Controllers
         public ActionResult Get()
         {
             var toggles = Toggle.Registry.All.Select(t => new { name = t, on = Toggle.Enabled(t) }).ToArray();
-            return Json(new { toggles = toggles}, JsonRequestBehavior.AllowGet);
+            return Json(new { toggles }, JsonRequestBehavior.AllowGet);
         }
     }
 }

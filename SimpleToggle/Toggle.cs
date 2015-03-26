@@ -57,7 +57,7 @@ namespace SimpleToggle
         
         public static string NameFor<T>()
         {
-            return typeof(T).FullName;
+            return typeof(T).Name;
         }
 
         public static bool Enabled<T>()
@@ -83,15 +83,6 @@ namespace SimpleToggle
     {
         public UnRegisteredToggleException(string toggle)
             : base(string.Format("Toggle {0} has not been registered", toggle))
-        {
-
-        }
-    }
-
-    public class MissingToggleException : Exception
-    {
-        public MissingToggleException(string toggle, IEnumerable<IProvider> providers)
-            : base(string.Format("Toggle {0} not found in any of the {1} Providers", toggle, providers.Count()))
         {
 
         }
