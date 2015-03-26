@@ -1,16 +1,15 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace SimpleToggle
 {
-    public class Feature
+    public static class Feature
     {
-        private static readonly HashSet<string> _registry = new HashSet<string>();
+        static readonly HashSet<string> Registry = new HashSet<string>();
 
         public static IEnumerable<string> All
         {
-            get { return _registry; }
+            get { return Registry; }
         }
 
         public static void Register<T>()
@@ -20,32 +19,34 @@ namespace SimpleToggle
 
         public static void Register(string toggle)
         {
-            _registry.Add(toggle);
+            Registry.Add(toggle);
         }
 
         public static void ResetAll()
         {
-            _registry.Clear();
+            Registry.Clear();
             Providers.Clear();
         }
 
-        public class Providers
+        public static class Providers
         {
-            private static readonly IList<IProvider> _all = new List<IProvider>();
+// ReSharper disable once MemberHidesStaticFromOuterClass
+            static readonly IList<IProvider> All = new List<IProvider>();
+
             public static IProvider Matching(string toggle)
             {
-                return _all
+                return All
                     .FirstOrDefault(p => p.Contains(toggle));    
             }
 
             public static void Clear()
             {
-                _all.Clear();
+                All.Clear();
             }
 
             public static void Add(IProvider provider)
             {
-                _all.Add(provider);
+                All.Add(provider);
             }
         }
         
@@ -61,22 +62,13 @@ namespace SimpleToggle
 
         public static bool IsEnabled(string toggle)
         {
-            if (!_registry.Contains(toggle))
+            if (!Registry.Contains(toggle))
             {
                 throw new UnRegisteredToggleException(toggle);
             }
 
             var provider = Providers.Matching(toggle);
             return provider != null && provider.IsEnabled(toggle);
-        }
-    }
-
-    public class UnRegisteredToggleException : Exception
-    {
-        public UnRegisteredToggleException(string toggle)
-            : base(string.Format("Feature {0} has not been registered", toggle))
-        {
-
         }
     }
 }
