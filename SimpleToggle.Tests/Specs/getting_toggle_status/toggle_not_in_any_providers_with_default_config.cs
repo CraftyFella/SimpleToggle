@@ -8,7 +8,7 @@ namespace SimpleToggle.Tests.Specs.getting_toggle_status
     {
         public toggle_not_in_any_providers()
         {
-            Toggle.Registry.Add<NotInConfigToggle>();
+            Feature.Register<NotInConfigToggle>();
         }
 
         [Fact]

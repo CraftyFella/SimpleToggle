@@ -137,6 +137,7 @@
     <Compile Include="Controllers\ToggleController.cs" />
     <Compile Include="Controllers\ToggleOnVersion.cs" />
     <Compile Include="Controllers\ToggleRequest.cs" />
+    <Compile Include="FeatureModule.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

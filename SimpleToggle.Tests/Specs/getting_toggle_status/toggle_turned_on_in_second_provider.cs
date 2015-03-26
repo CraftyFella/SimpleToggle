@@ -8,7 +8,7 @@ namespace SimpleToggle.Tests.Specs.getting_toggle_status
     {
         public toggle_turned_on_in_second_provider()
         {
-            toggle_on_in<MyToggle>(new InMemoryToggles());
+            toggle_on_in<MyToggle>(new InMemoryFeatures());
         }
         
         [Fact]

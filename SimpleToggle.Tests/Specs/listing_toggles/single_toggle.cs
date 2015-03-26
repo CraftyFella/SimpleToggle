@@ -9,18 +9,18 @@ namespace SimpleToggle.Tests.Specs.listing_toggles
     {
         public single_toggle()
         {
-            Toggle.Registry.Add("toggle");
+            Feature.Register("toggle");
         }
         [Fact]
         public void toggle_returned()
         {
-            Toggle.Registry.All.ShouldContain("toggle");
+            Feature.All.ShouldContain("toggle");
         }
 
         [Fact]
         public void list_has_one_item()
         {
-            Toggle.Registry.All.Count().ShouldBe(1);
+            Feature.All.Count().ShouldBe(1);
         }
     }
 }

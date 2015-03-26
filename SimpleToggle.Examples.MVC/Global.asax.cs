@@ -1,10 +1,8 @@
-﻿using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using Autofac;
 using SimpleToggle.Examples.MVC.Controllers;
-using SimpleToggle.Http;
 
 namespace SimpleToggle.Examples.MVC
 {
@@ -18,7 +16,7 @@ namespace SimpleToggle.Examples.MVC
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             AutoFacConfig.Register(c =>
             {
-                RegisterFeatureToggles(c);
+                c.RegisterModule<FeatureModule>();
                 c.Register(FeatureToggledService).As<IUseToggles>()
                     .InstancePerRequest();
             });
@@ -26,23 +24,10 @@ namespace SimpleToggle.Examples.MVC
 
         private IUseToggles FeatureToggledService(IComponentContext context)
         {
-            if (Toggle.Enabled("Toggle1"))
+            if (Feature.IsEnabled("Toggle1"))
                 return new ToggleOnVersion();
             
             return new NoOpVersion();
-        }
-
-        private static void RegisterFeatureToggles(ContainerBuilder c)
-        {
-            var toggles = new CookieToggles(() => new HttpContextWrapper(HttpContext.Current));
-            c.RegisterInstance(toggles).As<IToggler>();
-            
-            Toggle.Providers.Add(toggles);
-            Toggle.Registry.Add("Toggle1");
-            Toggle.Registry.Add("Toggle2");
-            Toggle.Registry.Add("Toggle3");
-            Toggle.Registry.Add<TypedToggle>();
-
         }
     }
 

@@ -3,26 +3,26 @@ using System.Web;
 
 namespace SimpleToggle.Http
 {
-    public class CookieToggles : IProvider, IToggler
+    public class CookieFeatures : IProvider, IToggler
     {
         private readonly Func<HttpContextBase> _httpContext;
         
-        public CookieToggles(Func<HttpContextBase> httpContext)
+        public CookieFeatures(Func<HttpContextBase> httpContext)
         {
             _httpContext = httpContext;
         }
 
-        public bool HasValue(string toggle)
+        public bool Contains(string toggle)
         {
             return Request.Cookies[toggle] != null;
         }
 
-        public HttpRequestBase Request
+        private HttpRequestBase Request
         {
             get { return _httpContext().Request; }
         }
 
-        public HttpResponseBase Response
+        private HttpResponseBase Response
         {
             get { return _httpContext().Response; }
         }

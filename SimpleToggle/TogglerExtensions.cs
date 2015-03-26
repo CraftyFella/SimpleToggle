@@ -4,17 +4,17 @@ namespace SimpleToggle
     {
         public static void ToggleOn<T>(this IToggler toggler)
         {
-            toggler.ToggleOn(SimpleToggle.Toggle.NameFor<T>());
+            toggler.ToggleOn(SimpleToggle.Feature.NameFor<T>());
         }
 
         public static void ToggleOff<T>(this IToggler toggles)
         {
-            toggles.ToggleOff(SimpleToggle.Toggle.NameFor<T>());
+            toggles.ToggleOff(SimpleToggle.Feature.NameFor<T>());
         }
 
         public static void Toggle<T>(this IToggler toggles, bool @on)
         {
-            toggles.Toggle(SimpleToggle.Toggle.NameFor<T>(), @on);
+            toggles.Toggle(SimpleToggle.Feature.NameFor<T>(), @on);
         }
 
         public static void ToggleOn(this IToggler toggles, string toggle)
