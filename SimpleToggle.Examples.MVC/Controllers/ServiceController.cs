@@ -23,7 +23,7 @@ namespace SimpleToggle.Examples.MVC.Controllers
         string Message();
     }
 
-    public class ToggleOffVersion : IUseToggles
+    public class NoOpVersion : IUseToggles
     {
         public string Message()
         {

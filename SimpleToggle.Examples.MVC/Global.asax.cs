@@ -19,19 +19,27 @@ namespace SimpleToggle.Examples.MVC
             AutoFacConfig.Register(c =>
             {
                 RegisterFeatureToggles(c);
-                c.Register(FeatureToggledService).As<IUseToggles>();
+                c.Register(FeatureToggledService).As<IUseToggles>()
+                    .InstancePerRequest();
             });
         }
 
         private IUseToggles FeatureToggledService(IComponentContext context)
         {
-            return Toggle.Enabled("Toggle1") ? (IUseToggles) new ToggleOnVersion() : new ToggleOffVersion();
+            if (Toggle.Enabled("Toggle1"))
+                return new ToggleOnVersion();
+            
+            return new NoOpVersion();
         }
 
         private static void RegisterFeatureToggles(ContainerBuilder c)
         {
             var toggles = new CookieToggles(() => new HttpContextWrapper(HttpContext.Current));
             c.RegisterInstance(toggles).As<IToggler>();
+
+            // Register all the toggles
+            //Toggle.Register("name", writeable);
+
             Toggle.Config.Default();
             Toggle.Config.NoToggleBehaviour = s => false;
             Toggle.Config.Providers.Add(toggles);

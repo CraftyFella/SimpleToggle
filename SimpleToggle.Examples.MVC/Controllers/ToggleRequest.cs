@@ -1,4 +1,4 @@
-﻿namespace SimpleToggle.Examples.MVC.Controllers
+namespace SimpleToggle.Examples.MVC.Controllers
 {
     public class ToggleRequest
     {
