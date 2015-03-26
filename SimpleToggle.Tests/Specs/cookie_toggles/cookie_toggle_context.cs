@@ -31,7 +31,7 @@ namespace SimpleToggle.Tests.Specs.cookie_toggles
         private void http_running()
         {
             http_context = new InMemoryHttpContext();
-            _cookieToggles = new CookieToggles(http_context);
+            _cookieToggles = new CookieToggles(() => http_context);
             Toggle.Config.Providers.Add(_cookieToggles);
         }
     }

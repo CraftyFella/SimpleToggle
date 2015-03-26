@@ -15,15 +15,10 @@ namespace SimpleToggle
         {
             return _state[toggle];
         }
-
-        public void ToggleOn(string toggle)
+        
+        public void Toggle(string toggle, bool @on)
         {
-            _state.AddOrUpdate(toggle, type => true, (type, b) => true);
-        }
-
-        public void ToggleOff(string toggle)
-        {
-            _state.AddOrUpdate(toggle, type => false, (type, b) => false);
+            _state.AddOrUpdate(toggle, type => @on, (type, b) => @on);
         }
     }
 }

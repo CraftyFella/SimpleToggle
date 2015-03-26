@@ -59,6 +59,7 @@
     <Compile Include="Specs\cookie_toggles\InMemoryRequest.cs" />
     <Compile Include="Specs\cookie_toggles\InMemoryResponse.cs" />
     <Compile Include="Specs\cookie_toggles\toggle_turned_on.cs" />
+    <Compile Include="Specs\cookie_toggles\toggle_turned_on_then_off_then_on.cs" />
     <Compile Include="Specs\type_toggles\multiple_toggles.cs" />
     <Compile Include="Specs\MyOtherOffToggle.cs" />
     <Compile Include="Specs\MyOtherToggle.cs" />

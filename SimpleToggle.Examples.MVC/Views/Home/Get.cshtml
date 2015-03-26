@@ -1,0 +1,69 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>Toggle Test App</h1>
+    <p class="lead">Example MVC App which will help test toggles per request</p>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <h2>Toggles</h2>
+        
+        <div id="content"></div>
+        
+        <button id="message">Get Message Based on Toggle1</button>
+    </div>
+</div>
+
+@section scripts
+{
+    <script src="~/Scripts/mustache.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            onStart();
+        });
+
+        function onStart() {
+
+            $("#message").click(function() {
+                $.get("message").done(function(data) {
+                    alert(data.message);
+                });
+            });
+            update();
+        }
+
+        function update() {
+
+            $.get("toggle")
+                .done(function(data) {
+                    var output = Mustache.render("{{#toggles}} {{name}} is {{on}} " +
+                        "<button class='toggleButton' name={{name}} id='{{name}}On'>Turn on</button>" +
+                        "<button class='toggleButton' name={{name}} id='{{name}}Off'>Turn off</button>" +
+                        "<p/> {{/toggles}}", data);
+                    $("#content").html(output);
+                    data.toggles.forEach(function(item) {
+                        $("#" + item.name + "On").click(toggle(true));
+                        $("#" + item.name + "Off").click(toggle(false));
+                    });
+                });
+
+        }
+
+        function toggle(on) {
+            return function() {
+                $.post("/toggle", { name: this.name, on: on })
+                    .done(function() {
+                        update();
+                    })
+                    .fail(function() {
+                        alert("error");
+                    });
+            };
+        }
+
+    </script>
+
+}

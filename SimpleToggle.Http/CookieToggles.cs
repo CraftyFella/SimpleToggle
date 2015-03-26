@@ -1,21 +1,30 @@
-﻿using System.Web;
+﻿using System;
+using System.Web;
 
 namespace SimpleToggle.Http
 {
     public class CookieToggles : IProvider, IToggler
     {
-        private readonly HttpRequestBase Request;
-        private readonly HttpResponseBase Response;
+        private readonly Func<HttpContextBase> _httpContext;
         
-        public CookieToggles(HttpContextBase httpContext)
+        public CookieToggles(Func<HttpContextBase> httpContext)
         {
-            Request = httpContext.Request;
-            Response = httpContext.Response;
+            _httpContext = httpContext;
         }
 
         public bool HasValue(string toggle)
         {
             return Request.Cookies[toggle] != null;
+        }
+
+        public HttpRequestBase Request
+        {
+            get { return _httpContext().Request; }
+        }
+
+        public HttpResponseBase Response
+        {
+            get { return _httpContext().Response; }
         }
 
         public bool IsEnabled(string toggle)
@@ -27,17 +36,7 @@ namespace SimpleToggle.Http
             return result;
         }
 
-        public void ToggleOn(string toggle)
-        {
-            Toggle(toggle, true);
-        }
-
-        public void ToggleOff(string toggle)
-        {
-            Toggle(toggle, false);
-        }
-
-        private void Toggle(string toggle, bool on)
+        public void Toggle(string toggle, bool on)
         {
             SetCookie(Request.Cookies, toggle, on);
             SetCookie(Response.Cookies, toggle, on);
