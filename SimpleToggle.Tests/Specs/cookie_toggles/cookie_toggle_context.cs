@@ -9,17 +9,20 @@ namespace SimpleToggle.Tests.Specs.cookie_toggles
 
         public cookie_toggle_context()
         {
-            Toggle.Config.Default();
+            Toggle.Providers.Clear();
+            Toggle.Registry.Clear();
             http_running();
         }
 
         protected void toggle_on<T>()
         {
+            Toggle.Registry.Add<T>();
             _cookieToggles.ToggleOn<T>();
         }
 
         protected void toggle_off<T>()
         {
+            Toggle.Registry.Add<T>();
             _cookieToggles.ToggleOff<T>();
         }
         
@@ -32,7 +35,7 @@ namespace SimpleToggle.Tests.Specs.cookie_toggles
         {
             http_context = new InMemoryHttpContext();
             _cookieToggles = new CookieToggles(() => http_context);
-            Toggle.Config.Providers.Add(_cookieToggles);
+            Toggle.Providers.Add(_cookieToggles);
         }
     }
 }

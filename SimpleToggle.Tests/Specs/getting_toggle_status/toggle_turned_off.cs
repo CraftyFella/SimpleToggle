@@ -1,7 +1,7 @@
 using Shouldly;
 using Xunit;
 
-namespace SimpleToggle.Tests.Specs.type_toggles
+namespace SimpleToggle.Tests.Specs.getting_toggle_status
 {
     public class toggle_turned_off : toggle_context
     {

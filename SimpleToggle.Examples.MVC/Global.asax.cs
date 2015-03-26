@@ -36,13 +36,12 @@ namespace SimpleToggle.Examples.MVC
         {
             var toggles = new CookieToggles(() => new HttpContextWrapper(HttpContext.Current));
             c.RegisterInstance(toggles).As<IToggler>();
+            
+            Toggle.Providers.Add(toggles);
+            Toggle.Registry.Add("Toggle1");
+            Toggle.Registry.Add("Toggle2");
+            Toggle.Registry.Add("Toggle3");
 
-            // Register all the toggles
-            //Toggle.Register("name", writeable);
-
-            Toggle.Config.Default();
-            Toggle.Config.NoToggleBehaviour = s => false;
-            Toggle.Config.Providers.Add(toggles);
         }
     }
 }

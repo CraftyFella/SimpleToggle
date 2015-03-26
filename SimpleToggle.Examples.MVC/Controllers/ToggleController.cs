@@ -1,3 +1,4 @@
+using System.Linq;
 using System.Net;
 using System.Web.Mvc;
 
@@ -35,13 +36,8 @@ namespace SimpleToggle.Examples.MVC.Controllers
         [HttpGet]
         public ActionResult Get()
         {
-            // TODO: I think toggles should be registered with the engine to allow us to list toggles (Registering could allow readonly or per request toggles)
-            return Json(new { toggles = new []
-            {
-                new { name = "Toggle1", on = Toggle.Enabled("Toggle1") },
-                new { name = "Toggle2", on = Toggle.Enabled("Toggle2") },
-                new { name = "Toggle3", on = Toggle.Enabled("Toggle3") }
-            }}, JsonRequestBehavior.AllowGet);
+            var toggles = Toggle.Registry.All.Select(t => new { name = t, on = Toggle.Enabled(t) }).ToArray();
+            return Json(new { toggles = toggles}, JsonRequestBehavior.AllowGet);
         }
     }
 }

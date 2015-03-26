@@ -17,25 +17,4 @@ namespace SimpleToggle.Examples.MVC.Controllers
             return Json(new { message = _serviceThatUsesToggles.Message() }, JsonRequestBehavior.AllowGet);
         }
     }
-
-    public interface IUseToggles
-    {
-        string Message();
-    }
-
-    public class NoOpVersion : IUseToggles
-    {
-        public string Message()
-        {
-            return "Hello from Toggle Off Version";
-        }
-    }
-
-    public class ToggleOnVersion : IUseToggles
-    {
-        public string Message()
-        {
-            return "Hello from Toggle On Version";
-        }
-    }
 }

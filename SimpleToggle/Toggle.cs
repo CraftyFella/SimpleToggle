@@ -6,25 +6,52 @@ namespace SimpleToggle
 {
     public class Toggle
     {
-        public class Config
+        public class Registry
         {
-            static Config()
+            private static readonly HashSet<string> _store = new HashSet<string>();
+
+            public static IEnumerable<string> All
             {
-                NoToggleBehaviour = DefaultNoToggleBehaviour;
+                get { return _store; }
             }
 
-            private static bool DefaultNoToggleBehaviour(string toggle)
+            public static void Add<T>()
             {
-                throw new KeyNotFoundException(string.Format("Toggle {0} could not be found in any of the {1} ToggleStateProviders", toggle, Providers.Count));
+                Add(NameFor<T>());
             }
 
-            public static readonly IList<IProvider> Providers = new List<IProvider>();
-            public static Func<string, bool> NoToggleBehaviour { get; set; }
-
-            public static void Default()
+            public static void Add(string toggle)
             {
-                Providers.Clear();
-                NoToggleBehaviour = DefaultNoToggleBehaviour;
+                _store.Add(toggle);
+            }
+
+            public static void Clear()
+            {
+                _store.Clear();
+            }
+
+            public static bool Contains(string toggle)
+            {
+                return _store.Contains(toggle);
+            }
+        }
+
+        public class Providers
+        {
+            private static readonly IList<IProvider> _store = new List<IProvider>();
+            public static IEnumerable<IProvider> All
+            {
+                get { return _store; }
+            }
+
+            public static void Clear()
+            {
+                _store.Clear();
+            }
+
+            public static void Add(IProvider provider)
+            {
+                _store.Add(provider);
             }
         }
         
@@ -37,13 +64,36 @@ namespace SimpleToggle
         {
             return Enabled(NameFor<T>());
         }
-        
+
         public static bool Enabled(string toggle)
         {
-            var provider = Config.Providers
+            if (!Registry.Contains(toggle))
+            {
+                throw new UnRegisteredToggleException(toggle);
+            }
+
+            var provider = Providers.All
                 .FirstOrDefault(p => p.HasValue(toggle));
 
-            return provider == null ? Config.NoToggleBehaviour(toggle) : provider.IsEnabled(toggle);
+            return provider != null && provider.IsEnabled(toggle);
+        }
+    }
+
+    public class UnRegisteredToggleException : Exception
+    {
+        public UnRegisteredToggleException(string toggle)
+            : base(string.Format("Toggle {0} has not been registered", toggle))
+        {
+
+        }
+    }
+
+    public class MissingToggleException : Exception
+    {
+        public MissingToggleException(string toggle, IEnumerable<IProvider> providers)
+            : base(string.Format("Toggle {0} not found in any of the {1} Providers", toggle, providers.Count()))
+        {
+
         }
     }
 }

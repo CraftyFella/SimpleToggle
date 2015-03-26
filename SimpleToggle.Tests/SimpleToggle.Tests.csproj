@@ -60,7 +60,12 @@
     <Compile Include="Specs\cookie_toggles\InMemoryResponse.cs" />
     <Compile Include="Specs\cookie_toggles\toggle_turned_on.cs" />
     <Compile Include="Specs\cookie_toggles\toggle_turned_on_then_off_then_on.cs" />
-    <Compile Include="Specs\type_toggles\multiple_toggles.cs" />
+    <Compile Include="Specs\adding_to_registry\already_registered.cs" />
+    <Compile Include="Specs\adding_to_registry\no_previous_toggles.cs" />
+    <Compile Include="Specs\getting_toggle_status\toggle_not_in_any_providers_with_default_config.cs" />
+    <Compile Include="Specs\listing_toggles\no_toggles.cs" />
+    <Compile Include="Specs\listing_toggles\single_toggle.cs" />
+    <Compile Include="Specs\getting_toggle_status\multiple_toggles.cs" />
     <Compile Include="Specs\MyOtherOffToggle.cs" />
     <Compile Include="Specs\MyOtherToggle.cs" />
     <Compile Include="Specs\MyToggle.cs" />
@@ -68,13 +73,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Specs\string_toggles\string_toggle_turned_on.cs" />
     <Compile Include="Specs\toggle_context.cs" />
-    <Compile Include="Specs\type_toggles\toggle_thats_not_configured_with_default_config.cs" />
-    <Compile Include="Specs\type_toggles\toggle_thats_not_configured_with_no_throw_config.cs" />
-    <Compile Include="Specs\type_toggles\toggle_turned_off.cs" />
-    <Compile Include="Specs\type_toggles\toggle_turned_off_in_first_provider_and_on_in_second_provider.cs" />
-    <Compile Include="Specs\type_toggles\toggle_turned_on.cs" />
-    <Compile Include="Specs\type_toggles\toggle_turned_on_in_first_provider_and_on_in_second_provider.cs" />
-    <Compile Include="Specs\type_toggles\toggle_turned_on_in_second_provider.cs" />
+    <Compile Include="Specs\getting_toggle_status\toggle_thats_not_registered.cs" />
+    <Compile Include="Specs\getting_toggle_status\toggle_turned_off.cs" />
+    <Compile Include="Specs\getting_toggle_status\toggle_turned_off_in_first_provider_and_on_in_second_provider.cs" />
+    <Compile Include="Specs\getting_toggle_status\toggle_turned_on.cs" />
+    <Compile Include="Specs\getting_toggle_status\toggle_turned_on_in_first_provider_and_on_in_second_provider.cs" />
+    <Compile Include="Specs\getting_toggle_status\toggle_turned_on_in_second_provider.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SimpleToggle.Http\SimpleToggle.Http.csproj">
