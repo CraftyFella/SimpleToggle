@@ -1,4 +1,3 @@
-using System.Web;
 using Autofac;
 using SimpleToggle.Http;
 
@@ -9,7 +8,7 @@ namespace SimpleToggle.Examples.MVC
         protected override void Load(ContainerBuilder builder)
         {
             base.Load(builder);
-            var toggles = new CookieProvider(() => new HttpContextWrapper(HttpContext.Current));
+            var toggles = new CookieProvider();
             builder.RegisterInstance(toggles).As<IToggler>();
 
             Toggle.Providers.Add(toggles);

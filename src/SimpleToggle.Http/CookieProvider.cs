@@ -6,7 +6,13 @@ namespace SimpleToggle.Http
     public class CookieProvider : IProvider, IToggler
     {
         private readonly Func<HttpContextBase> _httpContext;
-        
+
+        public CookieProvider()
+            : this (() => new HttpContextWrapper(HttpContext.Current))
+        {
+            
+        }
+
         public CookieProvider(Func<HttpContextBase> httpContext)
         {
             _httpContext = httpContext;
