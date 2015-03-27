@@ -15,6 +15,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleToggle.Tests", "src\S
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleToggle.Examples.MVC", "src\SimpleToggle.Examples.MVC\SimpleToggle.Examples.MVC.csproj", "{5907C12D-C1E8-4489-B2DA-A7597C650A90}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{247F91D3-AA47-471B-BE47-60C788DA3C6D}"
+	ProjectSection(SolutionItems) = preProject
+		appveyor.yml = appveyor.yml
+		build.bat = build.bat
+		build.fsx = build.fsx
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
