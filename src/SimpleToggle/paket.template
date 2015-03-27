@@ -1,4 +1,4 @@
 ﻿type project
-id SimpleToggle
+id SimpleToggle.Core
 authors Mighty Kudu Limited
 description Very Simple Feature Toggles in C#
