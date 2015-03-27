@@ -9,7 +9,7 @@ namespace SimpleToggle.Tests.Specs.listing_toggles
         [Fact]
         public void empty_list_returned()
         {
-            Feature.All.ShouldBeEmpty();
+            Toggle.All.ShouldBeEmpty();
         }
     }
 }

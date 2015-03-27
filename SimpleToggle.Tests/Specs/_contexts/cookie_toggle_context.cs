@@ -6,36 +6,36 @@ namespace SimpleToggle.Tests.Specs._contexts
     public class cookie_toggle_context
     {
         protected InMemoryHttpContext http_context;
-        private CookieFeatures _cookieFeatures;
+        private CookieProvider _cookieProvider;
 
         public cookie_toggle_context()
         {
-            Feature.ResetAll();
+            Toggle.ResetAll();
             http_running();
         }
 
         protected void toggle_on<T>()
         {
-            Feature.Register<T>();
-            _cookieFeatures.ToggleOn<T>();
+            Toggle.Register<T>();
+            _cookieProvider.ToggleOn<T>();
         }
 
         protected void toggle_off<T>()
         {
-            Feature.Register<T>();
-            _cookieFeatures.ToggleOff<T>();
+            Toggle.Register<T>();
+            _cookieProvider.ToggleOff<T>();
         }
         
         protected bool is_toggle_enabled<T>()
         {
-            return Feature.IsEnabled<T>();
+            return Toggle.IsEnabled<T>();
         }
 
         private void http_running()
         {
             http_context = new InMemoryHttpContext();
-            _cookieFeatures = new CookieFeatures(() => http_context);
-            Feature.Providers.Add(_cookieFeatures);
+            _cookieProvider = new CookieProvider(() => http_context);
+            Toggle.Providers.Add(_cookieProvider);
         }
     }
 }

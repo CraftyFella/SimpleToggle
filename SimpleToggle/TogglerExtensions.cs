@@ -14,7 +14,7 @@ namespace SimpleToggle
 
         public static void Toggle<T>(this IToggler toggles, bool @on)
         {
-            toggles.Toggle(Feature.NameFor<T>(), @on);
+            toggles.Toggle(SimpleToggle.Toggle.NameFor<T>(), @on);
         }
 
         public static void ToggleOn(this IToggler toggles, string toggle)

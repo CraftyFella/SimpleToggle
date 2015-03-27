@@ -16,15 +16,15 @@ namespace SimpleToggle.Examples.MVC
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             AutoFacConfig.Register(c =>
             {
-                c.RegisterModule<FeatureModule>();
-                c.Register(FeatureToggledService).As<IUseToggles>()
+                c.RegisterModule<ToggleModule>();
+                c.Register(ToggledService).As<IUseToggles>()
                     .InstancePerRequest();
             });
         }
 
-        private IUseToggles FeatureToggledService(IComponentContext context)
+        private IUseToggles ToggledService(IComponentContext context)
         {
-            if (Feature.IsEnabled("Toggle1"))
+            if (Toggle.IsEnabled("Toggle1"))
                 return new ToggleOnVersion();
             
             return new NoOpVersion();

@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace SimpleToggle
 {
-    public static class Feature
+    public static class Toggle
     {
         static readonly HashSet<string> Registry = new HashSet<string>();
 

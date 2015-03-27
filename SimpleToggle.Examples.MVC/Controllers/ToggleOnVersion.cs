@@ -4,7 +4,7 @@ namespace SimpleToggle.Examples.MVC.Controllers
     {
         public string Message()
         {
-            return "Hello from Feature On Version";
+            return "Hello from Toggle On Version";
         }
     }
 }

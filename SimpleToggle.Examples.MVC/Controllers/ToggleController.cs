@@ -28,7 +28,7 @@ namespace SimpleToggle.Examples.MVC.Controllers
             return Json(new
             {
                 Name = name,
-                On = Feature.IsEnabled(name)
+                On = Toggle.IsEnabled(name)
             }, JsonRequestBehavior.AllowGet);
         }
 
@@ -36,7 +36,7 @@ namespace SimpleToggle.Examples.MVC.Controllers
         [HttpGet]
         public ActionResult Get()
         {
-            var toggles = Feature.All.Select(t => new { name = t, on = Feature.IsEnabled(t) }).ToArray();
+            var toggles = Toggle.All.Select(t => new { name = t, on = Toggle.IsEnabled(t) }).ToArray();
             return Json(new { toggles }, JsonRequestBehavior.AllowGet);
         }
     }

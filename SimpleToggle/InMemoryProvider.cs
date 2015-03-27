@@ -2,7 +2,7 @@ using System.Collections.Concurrent;
 
 namespace SimpleToggle
 {
-    public class InMemoryFeatures : IProvider, IToggler
+    public class InMemoryProvider : IProvider, IToggler
     {
         private readonly ConcurrentDictionary<string, bool> _state = new ConcurrentDictionary<string, bool>(); 
 

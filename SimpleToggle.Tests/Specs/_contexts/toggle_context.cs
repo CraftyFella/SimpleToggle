@@ -6,47 +6,47 @@ namespace SimpleToggle.Tests.Specs._contexts
 {
     public class toggle_context
     {
-        private readonly InMemoryFeatures _inMemoryFeatures;
+        private readonly InMemoryProvider _inMemoryProvider;
 
         public toggle_context()
         {
-            Feature.ResetAll();
-            _inMemoryFeatures = new InMemoryFeatures();
-            Feature.Providers.Add(_inMemoryFeatures);
+            Toggle.ResetAll();
+            _inMemoryProvider = new InMemoryProvider();
+            Toggle.Providers.Add(_inMemoryProvider);
         }
 
         protected void toggle_on<T>()
         {    
-            toggle_on(Feature.NameFor<T>());
+            toggle_on(Toggle.NameFor<T>());
         }
 
         protected void toggle_on(string toggle)
         {
-            Feature.Register(toggle);
-            _inMemoryFeatures.ToggleOn(toggle);
+            Toggle.Register(toggle);
+            _inMemoryProvider.ToggleOn(toggle);
         }
 
         protected void toggle_off<T>()
         {
-            Feature.Register<T>();
-            _inMemoryFeatures.ToggleOff<T>();
+            Toggle.Register<T>();
+            _inMemoryProvider.ToggleOff<T>();
         }
 
-        protected void toggle_on_in<T>(InMemoryFeatures features)
+        protected void toggle_on_in<T>(InMemoryProvider provider)
         {
-            Feature.Providers.Add(features);
-            Feature.Register<T>();
-            features.ToggleOn<T>();
+            Toggle.Providers.Add(provider);
+            Toggle.Register<T>();
+            provider.ToggleOn<T>();
         }
 
         protected bool is_toggle_enabled<T>()
         {
-            return Feature.IsEnabled<T>();
+            return Toggle.IsEnabled<T>();
         }
 
         protected bool is_toggle_enabled(string toggle)
         {
-            return Feature.IsEnabled(toggle);
+            return Toggle.IsEnabled(toggle);
         }
     }
 }

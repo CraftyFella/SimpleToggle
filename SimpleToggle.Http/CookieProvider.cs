@@ -3,11 +3,11 @@ using System.Web;
 
 namespace SimpleToggle.Http
 {
-    public class CookieFeatures : IProvider, IToggler
+    public class CookieProvider : IProvider, IToggler
     {
         private readonly Func<HttpContextBase> _httpContext;
         
-        public CookieFeatures(Func<HttpContextBase> httpContext)
+        public CookieProvider(Func<HttpContextBase> httpContext)
         {
             _httpContext = httpContext;
         }

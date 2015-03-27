@@ -9,15 +9,15 @@ namespace SimpleToggle.Tests.Specs.adding_to_registry
     {
         public already_registered()
         {
-            Feature.Register<MyToggle>();
-            Feature.Register<MyToggle>();
+            Toggle.Register<MyToggle>();
+            Toggle.Register<MyToggle>();
         }
 
         [Fact]
         public void doesnt_add_another()
         {
-            Feature.All.Count().ShouldBe(1);
-            Feature.All.ShouldContain(Feature.NameFor<MyToggle>());
+            Toggle.All.Count().ShouldBe(1);
+            Toggle.All.ShouldContain(Toggle.NameFor<MyToggle>());
         }
     }
 }

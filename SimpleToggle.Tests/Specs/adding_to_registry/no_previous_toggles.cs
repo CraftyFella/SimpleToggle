@@ -8,13 +8,13 @@ namespace SimpleToggle.Tests.Specs.adding_to_registry
     {
         public no_previous_toggles()
         {
-            Feature.Register<MyToggle>();
+            Toggle.Register<MyToggle>();
         }
 
         [Fact]
         public void toggle_is_added_to_registry()
         {
-            Feature.All.ShouldContain(Feature.NameFor<MyToggle>());
+            Toggle.All.ShouldContain(Toggle.NameFor<MyToggle>());
         }
     }
 }
