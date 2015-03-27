@@ -9,6 +9,7 @@ NUGET
     bootstrap (3.0.0)
       jQuery (>= 1.9.0)
     EntityFramework (6.1.1)
+    FAKE (3.26.1)
     jQuery (1.10.2)
     jQuery.Validation (1.11.1)
       jQuery (>= 1.4.4)
@@ -47,3 +48,4 @@ NUGET
       xunit.extensibility.core (2.0.0)
     xunit.extensibility.core (2.0.0)
       xunit.abstractions (2.0.0)
+    xunit.runner.console (2.0.0)

@@ -1,10 +1,9 @@
 source https://www.nuget.org/api/v2
-source d:\Code\CTM\Nuget
-source http://nuget.internal.comparethemarket.local/nuget
 
 nuget Antlr 3.4.1.9004
 nuget Autofac 3.4.0
 nuget Autofac.Mvc5 3.3.3
+nuget FAKE
 nuget bootstrap 3.0.0
 nuget EntityFramework 6.1.1
 nuget jQuery 1.10.2
@@ -28,3 +27,4 @@ nuget xunit.abstractions 2.0.0
 nuget xunit.assert 2.0.0
 nuget xunit.core 2.0.0
 nuget xunit.extensibility.core 2.0.0
+nuget xunit.runner.console
