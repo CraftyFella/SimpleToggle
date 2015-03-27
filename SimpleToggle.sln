@@ -1,8 +1,13 @@
-﻿
+
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".paket", ".paket", "{EBA6EC51-D198-4E66-BEE7-CA777249471A}"
+	ProjectSection(SolutionItems) = preProject
+		paket.dependencies = paket.dependencies
+	EndProjectSection
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleToggle", "SimpleToggle\SimpleToggle.csproj", "{6B481ED5-8E45-4819-BC42-D7B36EB2233A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleToggle.Tests", "SimpleToggle.Tests\SimpleToggle.Tests.csproj", "{2CDB3E1B-8720-42DD-B4F3-FC1A3D1F70DA}"
