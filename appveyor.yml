@@ -1,3 +1,9 @@
 build_script:
   build.bat CI
 test: off
+
+environment:
+  NUGETKEY:
+    secure: HOWZ046FNIfai2ggKKNFTs31eHxTPQK7kqj9M4fwpxc=
+  NUGETURL:
+    secure: kA0qvbnPrJG8++wuOEzJOSrdfIG1j7no1Gu0N9QvBSdPZaAl5CJHNAEzWEifegtvj8SFGtxHssgopELJOLwzCA==
