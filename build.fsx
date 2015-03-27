@@ -29,10 +29,13 @@ Target "NuGet" (fun _ ->
     Paket.Pack(fun p -> 
         { p with Version = buildNumber
                  OutputPath = packageDir })
+    let consoleOut = System.Console.Out
+    System.IO.TextWriter.Null |> System.Console.SetOut
     Paket.Push(fun p -> 
         { p with ApiKey = nugetKey
                  PublishUrl = nugetUrl
-                 WorkingDir = packageDir }))
+                 WorkingDir = packageDir })
+    System.Console.SetOut consoleOut)
 Target "Default" DoNothing
 Target "CI" DoNothing
 // Dependencies
