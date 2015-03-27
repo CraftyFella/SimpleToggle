@@ -2,5 +2,3 @@
 id SimpleToggle.Http
 authors Mighty Kudu Limited
 description Cookie Toggles
-dependencies
-  SimpleToggle.Core >= 0.0.1
