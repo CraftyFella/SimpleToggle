@@ -1,0 +1,6 @@
+﻿type project
+id SimpleToggle.Http
+authors Mighty Kudu Limited
+description Cookie Toggles
+dependencies
+  SimpleToggle >= 0.0.1

@@ -1,0 +1,4 @@
+﻿type project
+id SimpleToggle
+authors Mighty Kudu Limited
+description Very Simple Feature Toggles in C#
