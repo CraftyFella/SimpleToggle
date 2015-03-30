@@ -16,9 +16,10 @@ namespace SimpleToggle
             return _state[toggle];
         }
         
-        public void Toggle(string toggle, bool @on)
+        public IToggler Toggle(string toggle, bool @on)
         {
             _state.AddOrUpdate(toggle, type => @on, (type, b) => @on);
+            return this;
         }
     }
 }

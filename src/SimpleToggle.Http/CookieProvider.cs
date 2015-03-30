@@ -42,10 +42,11 @@ namespace SimpleToggle.Http
             return result;
         }
 
-        public void Toggle(string toggle, bool on)
+        public IToggler Toggle(string toggle, bool on)
         {
             SetCookie(Request.Cookies, toggle, on);
             SetCookie(Response.Cookies, toggle, on);
+            return this;
         }
 
         private void SetCookie(HttpCookieCollection cookies, string toggle, bool state)

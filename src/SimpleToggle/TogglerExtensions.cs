@@ -2,29 +2,34 @@ namespace SimpleToggle
 {
     public static class TogglerExtensions
     {
-        public static void ToggleOn<T>(this IToggler toggler)
+        public static IToggler ToggleOn<T>(this IToggler toggler)
         {
             toggler.Toggle<T>(true);
+            return toggler;
         }
 
-        public static void ToggleOff<T>(this IToggler toggler)
+        public static IToggler ToggleOff<T>(this IToggler toggler)
         {
             toggler.Toggle<T>(false);
+            return toggler;
         }
 
-        public static void Toggle<T>(this IToggler toggles, bool @on)
+        public static IToggler Toggle<T>(this IToggler toggler, bool @on)
         {
-            toggles.Toggle(SimpleToggle.Toggle.NameFor<T>(), @on);
+            toggler.Toggle(SimpleToggle.Toggle.NameFor<T>(), @on);
+            return toggler;
         }
 
-        public static void ToggleOn(this IToggler toggles, string toggle)
+        public static IToggler ToggleOn(this IToggler toggler, string toggle)
         {
-            toggles.Toggle(toggle, true);
+            toggler.Toggle(toggle, true);
+            return toggler;
         }
 
-        public static void ToggleOff(this IToggler toggles, string toggle)
+        public static IToggler ToggleOff(this IToggler toggler, string toggle)
         {
-            toggles.Toggle(toggle, false);
+            toggler.Toggle(toggle, false);
+            return toggler;
         }
     }
 }
